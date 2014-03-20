@@ -18,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  haml
+  haml (= 4.0.5)
   rack
   shotgun
   sinatra
