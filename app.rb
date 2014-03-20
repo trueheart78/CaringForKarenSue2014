@@ -1,5 +1,5 @@
 require 'sinatra'
-require 'haml', '4.0.5'
+require 'haml'
 
 get '/' do
   # use the views/index.erb file
