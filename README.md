@@ -1,8 +1,11 @@
 Sinatra on OpenShift
 ====================
 
-This git repository will help you get up and running quickly with Sinatra on OpenShift.
+This git repository will help you get up and running quickly with Sinatra on OpenShift and HAML.
 
+Cloned From
+---------------------------
+The excellent repo @ https://github.com/openshift/sinatra-example
 
 Running on OpenShift
 ----------------------------
@@ -40,23 +43,6 @@ Before running any of these examples, you should run the below command to make s
 To run this application locally, cd into the sinatra-example directory that you cloned and run
 
 		bundle exec ruby -S rackup -w config.ru
-
-Also included are the following Sinatra examples.
-
-	Sinatra Views Example               example-views
-	Sinatra Modular Example             example-modular
-	Sinatra Modular Views Example       example-views-modular
-	Sinatra Modular Mustache Example    example-mustache-modular
-
-Just cd into the appropriate directory and run the following commands:
-
-		bundle install
-		bundle exec ruby -S rackup -w config.ru
-		
-
-Thanks to:
-
-Sinatra Mustache example based on: https://github.com/defunkt/mustache-sinatra-example
 
 License
 -------
