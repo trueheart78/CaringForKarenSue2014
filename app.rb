@@ -6,7 +6,11 @@ get '/' do
   haml :index
 end
 
-get '/agent' do
-  # use the views/agent.haml file
-  haml :agent
+get '/sponsors' do
+	haml :sponsors
+end
+
+get '/about' do
+	# use the views/about.haml file
+	haml :about
 end
