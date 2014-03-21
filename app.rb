@@ -2,11 +2,11 @@ require 'sinatra'
 require 'haml'
 
 get '/' do
-  # use the views/index.erb file
-  erb :index
+  # use the views/index.haml file
+  haml :index
 end
 
 get '/agent' do
-  # use the views/agent.erb file
-  erb :agent
+  # use the views/agent.haml file
+  haml :agent
 end
