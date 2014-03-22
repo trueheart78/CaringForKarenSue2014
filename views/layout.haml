@@ -8,12 +8,14 @@
     %link{ :rel => "stylesheet", :href => "//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" }
     %link{ :rel => "stylesheet", :href => "css/site.css" } 
     %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"}
+    %script{ :src => "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"}
+    %script{ :src => "js/site.js"}
   %body
     #page-header
       %header
         .container
           %h1
-            Caring for Karen 5th Annual Golf Classic 2014
+            Caring for Karen <span class='small'>5<sup>th</sup> Annual Golf Classic <!--2014--></span>
 
     %navigation
       .container
@@ -27,7 +29,7 @@
               %li{class:@aboutTab && "active"}
                 %a{ :href => "/about" } About
 
-    .container
+    .container.main-body
       = yield
 
     %footer

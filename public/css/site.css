@@ -23,6 +23,9 @@ h1 {
 	font-size: 36px;
 	font-weight: bold;
 }
+h1 .small {
+	color: #42a7b9;
+}
 #page-header {
 	background-color: #18304c;
   color: #ffffff; /*#42a7b9;*/

@@ -1,8 +1,23 @@
-.row
+.row{:style=>"min-height:280px;"}
   .col-md-12
-    Join the golf!
+    How would you like to participate?
+  .col-md-12
+    .dropdown{:onclick=>"$('.dropdown-toggle').dropdown()"}
+      %button.btn.dropdown-toggle#dropdownMenuJoin{:type=>"button",:data=>{:toggle=>"dropdown"}}
+        %span.inner-content
+          Register to Play
+        %span.caret
+      %ul.dropdown-menu#ddm-join-type{:role=>"menu",:aria=>{:labelledby=>"dropdownMenuJoin"}}
+        %li.active#ddm-join-register{:role=>"presentation"}
+          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('register')"} Register to Play
+        %li#ddm-join-sponsor{:role=>"presentation"}
+          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('sponsor')"} Sponsor a Hole
+        -#%li{:role=>"divider"}
+        %li#ddm-join-lunch{:role=>"presentation"}
+          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('lunch')"} Join us for Lunch
 
-#registration.row
+
+#registration.row.hide
   #register.col-md-12
     Registering to Play &mdash; $100 per player
   #sponsor.col-md-12
@@ -17,7 +32,7 @@
     %strong
       Deadline: August 16, 2014
 
-#sponsorship.row
+#sponsorship.row.hide
   .col-md-12
     %strong
       Sponsorship Levels
