@@ -10,12 +10,12 @@ p {
 #header {
 	color: #18304c;
 }
-#golf-course, .sponsor {
+#golf-course {
 	/*rounded corners div?*/
 	color: #18304c;
 	background-color: #42a8ba;
 }
-#golf-course a, .sponsor a {
+#golf-course a {
 	color: #ffffff;
 	text-decoration: underline;
 }

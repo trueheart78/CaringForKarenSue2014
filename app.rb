@@ -12,11 +12,6 @@ get '/join' do
 	haml :join
 end
 
-get '/sponsors' do
-	@sponsorTab = true
-	haml :sponsors
-end
-
 get '/about' do
 	# use the views/about.haml file
 	@aboutTab = true
