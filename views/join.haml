@@ -1,4 +1,4 @@
-.row{:style=>"min-height:280px;"}
+.row
   .col-md-12
     How would you like to participate?
   .col-md-12
@@ -16,12 +16,62 @@
         %li#ddm-join-lunch{:role=>"presentation"}
           %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('lunch')"} Join us for Lunch
 
+.row
+  #register-form.join-form.col-md-12
+    %select.form-control.input-xlarge{:name=>"register_number"}
+      %option{:value=>"1",:selected=>true} 1 player for $100
+      %option{:value=>"2"} 2 players for $200
+      %option{:value=>"3"} 3 players for $300
+      %option{:value=>"4"} 4 players for $400
+      %option{:value=>"5"} 5 players for $500
+      %option{:value=>"6"} 6 players for $600
+      %option{:value=>"7"} 7 players for $700
+      %option{:value=>"8"} 8 players for $800
+      %option{:value=>"9"} 9 players for $900
+      %option{:value=>"10"} 10 players for $1,000
+
+.row
+  #sponsor-form.join-form.col-md-12.hidden-form
+    .radio
+      %label
+        %input#optionsRadio1{:type=>"radio",:name=>"sponsor_type",:value=>"hole_200",:checked=>true}
+          Hole: $200
+    .radio
+      %label
+        %input#optionsRadio2{:type=>"radio",:name=>"sponsor_type",:value=>"par_500"}
+          Par: $500 (1 foursome and 1 Hole Sponsor)
+    .radio
+      %label
+        %input#optionsRadio3{:type=>"radio",:name=>"sponsor_type",:value=>"birdie_600"}
+          Birdie: $600 (1 foursome and 2 Hole Sponsor)
+    .radio
+      %label
+        %input#optionsRadio4{:type=>"radio",:name=>"sponsor_type",:value=>"eagle_750"}
+          Eagle: $750 (1 foursome, 2 Hole Sponsors, and logo and name on banner and website.)
+    .radio
+      %label
+        %input#optionsRadio5{:type=>"radio",:name=>"sponsor_type",:value=>"hole-in-one_2000"}
+          Hole in One (Key event sponsor) : $2,000 (2 foursomes, 2 Hole Sponsors and logo and name on banner and website.)
+.row
+  #lunch-form.join-form.col-md-12.hidden-form
+    %select.form-control.input-xlarge{:name=>"lunch_number"}
+      %option{:value=>"1",:selected=>true} 1 lunch for $25
+      %option{:value=>"2"} 2 lunches for $50
+      %option{:value=>"3"} 3 lunches for $75
+      %option{:value=>"4"} 4 lunches for $100
+      %option{:value=>"5"} 5 lunches for $125
+      %option{:value=>"6"} 6 lunches for $150
+      %option{:value=>"7"} 7 lunches for $175
+      %option{:value=>"8"} 8 lunches for $200
+      %option{:value=>"9"} 9 lunches for $225
+      %option{:value=>"10"} 10 lunches for $250
+
+.row
+  .col-md-12.col-sm-12{:align=>"center"}
+    %button.btn.btn-lg.btn-primary{:type=>"button",:style=>"margin: 20px 0",:onclick=>"joinUp();"}
+      Looks Good to Me!
 
 #registration.row.hide
-  #register.col-md-12
-    Registering to Play &mdash; $100 per player
-  #sponsor.col-md-12
-    Sponsoring a Hole &mdash; Starting at $200 per hole
   #lunch.col-md-12
     Joining us for lunch $25
   #prizes.col-md-12

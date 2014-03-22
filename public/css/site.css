@@ -30,3 +30,10 @@ h1 .small {
 	background-color: #18304c;
   color: #ffffff; /*#42a7b9;*/
 }
+.hidden-form { display: none; }
+.input-mini { width: 60px; }
+.input-small { width: 90px; }
+.input-medium { width: 150px; }
+.input-large { width: 210px; }
+.input-xlarge { width: 290px; }
+.input-xxlarge { width: 330px; }
