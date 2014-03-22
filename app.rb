@@ -7,6 +7,11 @@ get '/' do
   haml :index
 end
 
+get '/join' do
+	@joinTab = true
+	haml :join
+end
+
 get '/sponsors' do
 	@sponsorTab = true
 	haml :sponsors
