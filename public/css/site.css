@@ -1,4 +1,15 @@
 /*site css*/
-#content {
-	padding:15px;
+p {
+  margin-top: 5px;
+}
+#header {
+	color: #18304c;
+}
+#golf-course {
+	/*rounded corners div?*/
+	background-color: #42a8ba;
+	color: #18304c
+}
+#golf-course a {
+	color: #FFFFFF;
 }
