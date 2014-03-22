@@ -2,16 +2,22 @@
 p {
   margin-top: 5px;
 }
+.center {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+}
 #header {
 	color: #18304c;
 }
-#golf-course {
+#golf-course, .sponsor {
 	/*rounded corners div?*/
+	color: #18304c;
 	background-color: #42a8ba;
-	color: #18304c
 }
-#golf-course a {
-	color: #FFFFFF;
+#golf-course a, .sponsor a {
+	color: #ffffff;
+	text-decoration: underline;
 }
 .margin-top {
 	margin-top: 10px;
