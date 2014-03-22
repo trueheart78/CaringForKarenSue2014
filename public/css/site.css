@@ -1,14 +1,11 @@
 /*site css*/
 p {
-  margin-top: 5px;
+  margin-bottom: 16px;
 }
 .center {
 	float: none;
 	margin-left: auto;
 	margin-right: auto;
-}
-#header {
-	color: #18304c;
 }
 #golf-course {
 	/*rounded corners div?*/
@@ -21,4 +18,12 @@ p {
 }
 .margin-top {
 	margin-top: 10px;
+}
+h1 {
+	font-size: 36px;
+	font-weight: bold;
+}
+#page-header {
+	background-color: #18304c;
+  color: #ffffff; /*#42a7b9;*/
 }
