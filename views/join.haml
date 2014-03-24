@@ -67,8 +67,8 @@
       %option{:value=>"10"} 10 lunches for $250
 
 .row
-  .col-md-12.col-sm-12{align: "left"}
-    %button.btn.btn-lg.btn-primary{:type=>"button",:style=>"margin: 20px 0",:onclick=>"joinUp();"}
+  .col-md-12.col-sm-12
+    %button.btn.btn-lg.btn-primary#joinButton{:type=>"button",:onclick=>"joinUp();"}
       Looks Good to Me!
 
 #registration.row.hide

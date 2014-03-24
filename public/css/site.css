@@ -37,10 +37,19 @@ h1 .small {
 .input-large { width: 210px; }
 .input-xlarge { width: 290px; }
 .input-xxlarge { width: 330px; }
-
 #dropdownMenuJoin {
 	background-color: transparent;
 }
 .radio, .checkbox {
 	max-width: 400px;
+}
+#joinButton {
+	margin:20px auto;
+	display:block;
+}
+@media(min-width: 400px){
+	#joinButton {
+		float: left;
+		margin: 20px 0;
+	}
 }
