@@ -1,3 +1,4 @@
+require_relative 'environment'
 require 'sinatra'
 require 'haml'
 

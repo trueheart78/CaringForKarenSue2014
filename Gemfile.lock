@@ -1,6 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    dotenv (0.10.0)
     haml (4.0.5)
       tilt
     rack (1.4.4)
@@ -18,6 +19,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  dotenv
   haml (= 4.0.5)
   rack
   shotgun
