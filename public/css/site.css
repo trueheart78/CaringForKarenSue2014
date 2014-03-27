@@ -16,6 +16,15 @@ p {
 	color: #ffffff;
 	text-decoration: underline;
 }
+#payment-options {
+	/*rounded corners div?*/
+	color: #ffffff;
+	background-color: #42a8ba;
+}
+#payment-options a {
+	color: #ffffff;
+	text-decoration: underline;
+}
 .margin-top {
 	margin-top: 10px;
 }

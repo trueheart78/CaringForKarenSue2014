@@ -1,7 +1,7 @@
 .row
-  .col-md-12
+  .col-sm-7
     How would you like to participate?
-  .col-md-12
+  .col-sm-7
     .dropdown{:onclick=>"$('.dropdown-toggle').dropdown()"}
       %button.btn.dropdown-toggle#dropdownMenuJoin{:type=>"button",:data=>{:toggle=>"dropdown"}}
         %span.inner-content
@@ -67,9 +67,29 @@
       %option{:value=>"10"} 10 lunches for $250
 
 .row
-  .col-md-12.col-sm-12
+  .col-sm-7
     %button.btn.btn-lg.btn-primary#joinButton{:type=>"button",:onclick=>"joinUp();"}
       Looks Good to Me!
+  .col-sm-4.col-sm-offset-1.well#payment-options
+    -#.col-md-12.col-xs-12
+      -#%a{:href=>"http://www.applewoodgc.com/",:target=>"_blank"}
+        -#%img.pull-left.media-object{:src => "images/sponsor-applewood-logo.png", :alt => "Applewood Golf Course", :width=>"180", :height=> "85" }
+    .col-md-12
+      %strong
+        Paying By Check?
+    .col-md-12
+      1st Bank
+    .col-md-12
+      PO Box 507
+    .col-md-12
+      Arvada, CO 80001
+    .col-md-12
+      &nbsp;
+    .col-md-12
+      %strong
+        Make checks payable to:
+    .col-md-12
+      Karen Sue Benefit Fund
 
 #registration.row.hide
   #lunch.col-md-12
