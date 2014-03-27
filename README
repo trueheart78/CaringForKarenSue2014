@@ -1,3 +1,7 @@
 Basic sinatra app setup with the capability to run on the OpenShift under ruby 1.9.3
 
 Be sure to, at first, create the marker file at .openshift/markers/force_clean_build, otherwise the haml gem won't bundle properly.
+
+Deploying on OpenShift:
+rhc env set NODE_ENV=production -a $appname
+rhc env set APP_SECRET_HASH='$your-secret-hash' -a $appname
