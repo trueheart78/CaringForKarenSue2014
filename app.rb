@@ -1,5 +1,5 @@
 require_relative 'environment'
-require 'sinatra'
+require 'sinatra/base'
 require 'haml'
 
 class CaringSite < Sinatra::Base
