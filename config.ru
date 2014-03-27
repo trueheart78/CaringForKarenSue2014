@@ -5,4 +5,7 @@ Bundler.require
 
 require './app.rb'
 
-run Sinatra::Application
+use Rack::Session::Cookie, secret: ENV['APP_SECRET_HASH']
+use Rack::Protection, use: :authenticity_token
+
+run CaringSite.new
