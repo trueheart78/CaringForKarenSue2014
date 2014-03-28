@@ -1,95 +1,94 @@
 .row
-  .col-sm-7
-    How would you like to participate?
-  .col-sm-7
-    .dropdown{:onclick=>"$('.dropdown-toggle').dropdown()"}
-      %button.btn.dropdown-toggle#dropdownMenuJoin{:type=>"button",:data=>{:toggle=>"dropdown"}}
-        %span.inner-content
-          Register to Play
-        %span.caret
-      %ul.dropdown-menu#ddm-join-type{:role=>"menu",:aria=>{:labelledby=>"dropdownMenuJoin"}}
-        %li.active#ddm-join-register{:role=>"presentation"}
-          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('register')"} Register to Play
-        %li#ddm-join-sponsor{:role=>"presentation"}
-          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('sponsor')"} Sponsor a Hole
-        -#%li{:role=>"divider"}
-        %li#ddm-join-lunch{:role=>"presentation"}
-          %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('lunch')"} Join us for Lunch
+  .left.col-sm-6
+    .col-sm-12
+      How would you like to participate?
+    .col-sm-12
+      .dropdown{:onclick=>"$('.dropdown-toggle').dropdown()"}
+        %button.btn.dropdown-toggle#dropdownMenuJoin{:type=>"button",:data=>{:toggle=>"dropdown"}}
+          %span.inner-content
+            Register to Play
+          %span.caret
+        %ul.dropdown-menu#ddm-join-type{:role=>"menu",:aria=>{:labelledby=>"dropdownMenuJoin"}}
+          %li.active#ddm-join-register{:role=>"presentation"}
+            %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('register')"} Register to Play
+          %li#ddm-join-sponsor{:role=>"presentation"}
+            %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('sponsor')"} Sponsor a Hole
+          -#%li{:role=>"divider"}
+          %li#ddm-join-lunch{:role=>"presentation"}
+            %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('lunch')"} Join us for Lunch
+    #register-form.join-form.col-sm-12
+      %select.form-control.input-xlarge{:name=>"register_number"}
+        %option{:value=>"1",:selected=>true} 1 player for $100
+        %option{:value=>"2"} 2 players for $200
+        %option{:value=>"3"} 3 players for $300
+        %option{:value=>"4"} 4 players for $400
+        %option{:value=>"5"} 5 players for $500
+        %option{:value=>"6"} 6 players for $600
+        %option{:value=>"7"} 7 players for $700
+        %option{:value=>"8"} 8 players for $800
+        %option{:value=>"9"} 9 players for $900
+        %option{:value=>"10"} 10 players for $1,000
 
-.row
-  #register-form.join-form.col-md-12
-    %select.form-control.input-xlarge{:name=>"register_number"}
-      %option{:value=>"1",:selected=>true} 1 player for $100
-      %option{:value=>"2"} 2 players for $200
-      %option{:value=>"3"} 3 players for $300
-      %option{:value=>"4"} 4 players for $400
-      %option{:value=>"5"} 5 players for $500
-      %option{:value=>"6"} 6 players for $600
-      %option{:value=>"7"} 7 players for $700
-      %option{:value=>"8"} 8 players for $800
-      %option{:value=>"9"} 9 players for $900
-      %option{:value=>"10"} 10 players for $1,000
+    #sponsor-form.join-form.col-md-12.hidden-form
+      .radio
+        %label
+          %input#optionsRadio1{:type=>"radio",:name=>"sponsor_type",:value=>"hole_200",:checked=>true}
+            Hole: $200
+      .radio
+        %label
+          %input#optionsRadio2{:type=>"radio",:name=>"sponsor_type",:value=>"par_500"}
+            Par: $500 (1 foursome and 1 Hole Sponsor)
+      .radio
+        %label
+          %input#optionsRadio3{:type=>"radio",:name=>"sponsor_type",:value=>"birdie_600"}
+            Birdie: $600 (1 foursome and 2 Hole Sponsor)
+      .radio
+        %label
+          %input#optionsRadio4{:type=>"radio",:name=>"sponsor_type",:value=>"eagle_750"}
+            Eagle: $750 (1 foursome, 2 Hole Sponsors, and logo and name on banner and website.)
+      .radio
+        %label
+          %input#optionsRadio5{:type=>"radio",:name=>"sponsor_type",:value=>"hole-in-one_2000"}
+            Hole in One (Key event sponsor) : $2,000 (2 foursomes, 2 Hole Sponsors and logo and name on banner and website.)
 
-.row
-  #sponsor-form.join-form.col-md-12.hidden-form
-    .radio
-      %label
-        %input#optionsRadio1{:type=>"radio",:name=>"sponsor_type",:value=>"hole_200",:checked=>true}
-          Hole: $200
-    .radio
-      %label
-        %input#optionsRadio2{:type=>"radio",:name=>"sponsor_type",:value=>"par_500"}
-          Par: $500 (1 foursome and 1 Hole Sponsor)
-    .radio
-      %label
-        %input#optionsRadio3{:type=>"radio",:name=>"sponsor_type",:value=>"birdie_600"}
-          Birdie: $600 (1 foursome and 2 Hole Sponsor)
-    .radio
-      %label
-        %input#optionsRadio4{:type=>"radio",:name=>"sponsor_type",:value=>"eagle_750"}
-          Eagle: $750 (1 foursome, 2 Hole Sponsors, and logo and name on banner and website.)
-    .radio
-      %label
-        %input#optionsRadio5{:type=>"radio",:name=>"sponsor_type",:value=>"hole-in-one_2000"}
-          Hole in One (Key event sponsor) : $2,000 (2 foursomes, 2 Hole Sponsors and logo and name on banner and website.)
-.row
-  #lunch-form.join-form.col-md-12.hidden-form
-    %select.form-control.input-xlarge{:name=>"lunch_number"}
-      %option{:value=>"1",:selected=>true} 1 lunch for $25
-      %option{:value=>"2"} 2 lunches for $50
-      %option{:value=>"3"} 3 lunches for $75
-      %option{:value=>"4"} 4 lunches for $100
-      %option{:value=>"5"} 5 lunches for $125
-      %option{:value=>"6"} 6 lunches for $150
-      %option{:value=>"7"} 7 lunches for $175
-      %option{:value=>"8"} 8 lunches for $200
-      %option{:value=>"9"} 9 lunches for $225
-      %option{:value=>"10"} 10 lunches for $250
+    #lunch-form.join-form.col-md-12.hidden-form
+      %select.form-control.input-xlarge{:name=>"lunch_number"}
+        %option{:value=>"1",:selected=>true} 1 lunch for $25
+        %option{:value=>"2"} 2 lunches for $50
+        %option{:value=>"3"} 3 lunches for $75
+        %option{:value=>"4"} 4 lunches for $100
+        %option{:value=>"5"} 5 lunches for $125
+        %option{:value=>"6"} 6 lunches for $150
+        %option{:value=>"7"} 7 lunches for $175
+        %option{:value=>"8"} 8 lunches for $200
+        %option{:value=>"9"} 9 lunches for $225
+        %option{:value=>"10"} 10 lunches for $250
 
+    .col-sm-12
+      %button.btn.btn-lg.btn-primary#joinButton{:type=>"button",:onclick=>"joinUp();"}
+        Looks Good to Me!
+
+  .right.col-sm-6
+    .col-sm-8.col-sm-offset-4.well#payment-options
+      .col-md-12
+        %strong
+          Paying By Check?
+      .col-md-12
+        1st Bank
+      .col-md-12
+        PO Box 507
+      .col-md-12
+        Arvada, CO 80001
+      .col-md-12
+        &nbsp;
+      .col-md-12
+        %strong
+          Make checks payable to:
+      .col-md-12
+        Karen Sue Benefit Fund 
 .row
-  .col-sm-7
-    %button.btn.btn-lg.btn-primary#joinButton{:type=>"button",:onclick=>"joinUp();"}
-      Looks Good to Me!
-  .col-sm-4.col-sm-offset-1.well#payment-options
-    -#.col-md-12.col-xs-12
-      -#%a{:href=>"http://www.applewoodgc.com/",:target=>"_blank"}
-        -#%img.pull-left.media-object{:src => "images/sponsor-applewood-logo.png", :alt => "Applewood Golf Course", :width=>"180", :height=> "85" }
-    .col-md-12
-      %strong
-        Paying By Check?
-    .col-md-12
-      1st Bank
-    .col-md-12
-      PO Box 507
-    .col-md-12
-      Arvada, CO 80001
-    .col-md-12
-      &nbsp;
-    .col-md-12
-      %strong
-        Make checks payable to:
-    .col-md-12
-      Karen Sue Benefit Fund
+  
+  
 
 #registration.row.hide
   #lunch.col-md-12
