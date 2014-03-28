@@ -4,6 +4,7 @@ gem 'rack'
 gem 'sinatra'
 gem 'haml', '4.0.5'
 gem 'tilt', '~>1.3.3'
+gem 'pony'
 
 gem 'dotenv', :groups => [:development, :test]
 
@@ -14,4 +15,5 @@ end
 group :test do
   gem 'rack-test'
   gem 'rspec'
+  gem 'email_spec'
 end
