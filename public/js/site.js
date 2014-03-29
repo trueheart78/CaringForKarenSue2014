@@ -20,18 +20,36 @@ function selectMenu(menuOption){
       $(this).hide();
     }
 	})
+	setFormValues();
+}
+function setFormValues(){
+	switch(selectedOption){
+  	case 'register':
+  	  $('#paypal-button-id').val('VHZ9MFUHBBW7L');
+      $('#paypal-name-id').val('Registrants');
+      $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
+  	break;
+  	case 'sponsor':
+  	  $('#paypal-button-id').val('2NKPTU6SM9K7S');
+  	  $('#paypal-name-id').val('Sponsor Options');
+  	  $('#paypal-value-id').val($('input[name="sponsor_selection"]:checked').val());
+  	  break;
+  	case 'lunch':
+  	  $('#paypal-button-id').val('DQALYAQEKWXFQ');
+  	  $('#paypal-name-id').val('Lunches');
+  	  $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
+  	  break;
+  	case 'donate':
+  	default:
+      $('#paypal-button-id').val('S7P66PVP66D74');
+  	  break;
+  }
 }
 function joinUp(){
-	//find out which form is visible, that's what they've chosen
-	//then find out which item in the related
-	var match_form = selectedOption+'-form'
-	var data = jQuery('#'+match_form+' :input').serialize();
-	alert(data);
-  /*switch(selectedOption){
-  	case 'register':
-  	break
-  	case ''
-  }
-
-	alert(selectedOption);*/
+	setFormValues();
+	logFormSubmission();
+	$('#paypal-form').submit();
+}
+function logFormSubmission(){
+	//do an ajax call that chats with the back-end
 }

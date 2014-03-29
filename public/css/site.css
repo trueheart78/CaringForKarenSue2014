@@ -20,6 +20,7 @@ p {
 	/*rounded corners div?*/
 	color: #ffffff;
 	background-color: #3276B1;
+	text-align: left;
 }
 #payment-options a {
 	color: #ffffff;
