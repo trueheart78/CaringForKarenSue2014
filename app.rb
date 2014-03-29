@@ -16,6 +16,13 @@ class CaringSite < Sinatra::Base
 	  @joinTab = true
 	  haml :join
   end
+  post '/join' do
+		if params[:email].empty? or params[:name].empty?
+			redirect '/join'
+		end
+		#do something with the post data, then return success
+		"success"
+	end
 
   get '/about' do
 	  # use the views/about.haml file
@@ -49,7 +56,7 @@ class CaringSite < Sinatra::Base
   	@joinTab = true
   	haml :lunches_cancelled
   end
-  
+
   get '/registration/sponsor/success' do
     @joinTab = true
     haml :sponsor_success
