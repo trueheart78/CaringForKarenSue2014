@@ -23,6 +23,15 @@ class CaringSite < Sinatra::Base
 	  haml :about
   end
 
+  get '/donation/success' do
+    @joinTab = true
+    "Thank you for donating"
+  end
+  get '/donation/cancelled' do
+  	@joinTab = true
+  	"Your donation has been cancelled"
+  end
+
   get '/registration/success' do
     @joinTab = true
     "Thank you for registering"
@@ -40,7 +49,7 @@ class CaringSite < Sinatra::Base
   	@joinTab = true
   	"Your registration for lunch has been cancelled"
   end
-  
+
   get '/registration/sponsor/success' do
     @joinTab = true
     "Thank you for registering to sponsor the event"
