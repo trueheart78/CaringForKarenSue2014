@@ -25,37 +25,37 @@ class CaringSite < Sinatra::Base
 
   get '/donation/success' do
     @joinTab = true
-    "Thank you for donating"
+    haml :donation_success
   end
   get '/donation/cancelled' do
   	@joinTab = true
-  	"Your donation has been cancelled"
+  	haml :donation_cancelled
   end
 
   get '/registration/success' do
     @joinTab = true
-    "Thank you for registering"
+    haml :registration_success
   end
   get '/registration/cancelled' do
   	@joinTab = true
-  	"Your registration has been cancelled"
+  	haml :registration_cancelled
   end
 
   get '/registration/lunches/success' do
     @joinTab = true
-    "Thank you for registering for lunch"
+    haml :lunches_success
   end
   get '/registration/lunches/cancelled' do
   	@joinTab = true
-  	"Your registration for lunch has been cancelled"
+  	haml :lunches_cancelled
   end
-
+  
   get '/registration/sponsor/success' do
     @joinTab = true
-    "Thank you for registering to sponsor the event"
+    haml :sponsor_success
   end
   get '/registration/sponsor/cancelled' do
   	@joinTab = true
-  	"Your registration to sponsor the event has been cancelled"
+  	haml :sponsor_cancelled
   end
 end
