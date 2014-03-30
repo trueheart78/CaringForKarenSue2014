@@ -45,9 +45,10 @@ function setFormValues(){
   	  break;
   }
 }
-function validateName(){
+function validateName(allowEmpty){
+	allowEmpty = (allowEmpty != null) ? allowEmpty : false;
 	var valid = true;
-	if($('#visitor-name').val() == ''){
+	if($('#visitor-name').val() == '' && !allowEmpty){
     valid = false;
     $('#name-block').removeClass('has-success').addClass('has-error');
 	} else {
@@ -55,7 +56,8 @@ function validateName(){
 	}
 	return valid;
 }
-function validateEmail(){
+function validateEmail(allowEmpty){
+	allowEmpty = (allowEmpty != null) ? allowEmpty : false;
 	var valid = false;
 	var email = $('#visitor-email').val();
 	var longEnough = (email.length >= 5) ? true : false;
@@ -73,15 +75,16 @@ function validateEmail(){
 		}
 	}
 	//console.log(valid+' '+email+' @: '+symbolPos+' .:'+periodPos+' domain-length: '+domainLength+' str_length: '+email.length);
-	if(!valid){
+	if(!valid && !(email.length == 0 && allowEmpty)){
 		$('#email-block').removeClass('has-success').addClass('has-error');
 	} else {
 		$('#email-block').removeClass('has-error').addClass('has-success');
 	}
 	return valid;
 }
-function validateNameAndEmail(){
-	return (validateName() && validateEmail()) ? true : false;	
+function validateNameAndEmail(allowEmpty){
+	allowEmpty = (allowEmpty != null) ? allowEmpty : false;
+	return (validateName(allowEmpty) && validateEmail(allowEmpty)) ? true : false;	
 }
 function joinUp(){
 	setFormValues();
@@ -97,5 +100,5 @@ function logFormSubmission(){
   console.log('log "'+name+'" - '+email);
 }
 $(function() {
-	validateNameAndEmail();
+	validateNameAndEmail(true);
 });
