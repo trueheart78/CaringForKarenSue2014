@@ -45,11 +45,57 @@ function setFormValues(){
   	  break;
   }
 }
+function validateName(){
+	var valid = true;
+	if($('#visitor-name').val() == ''){
+    valid = false;
+    $('#name-block').removeClass('has-success').addClass('has-error');
+	} else {
+		$('#name-block').removeClass('has-error').addClass('has-success');
+	}
+	return valid;
+}
+function validateEmail(){
+	var valid = false;
+	var email = $('#visitor-email').val();
+	var longEnough = (email.length >= 5) ? true : false;
+	var symbolPos = email.indexOf('@');
+	var periodPos = -1;
+	var domainLength = -1;
+	if(symbolPos >= 1){
+		periodPos = email.indexOf('.',symbolPos+1);
+		if( (periodPos - symbolPos) > 1){
+			domainLength = email.length - (periodPos + 1);
+			//console.log(email.length+':'+periodPos+':'+domainLength);
+			if(domainLength >= 2){
+				valid = true;
+			}
+		}
+	}
+	//console.log(valid+' '+email+' @: '+symbolPos+' .:'+periodPos+' domain-length: '+domainLength+' str_length: '+email.length);
+	if(!valid){
+		$('#email-block').removeClass('has-success').addClass('has-error');
+	} else {
+		$('#email-block').removeClass('has-error').addClass('has-success');
+	}
+	return valid;
+}
+function validateNameAndEmail(){
+	return (validateName() && validateEmail()) ? true : false;	
+}
 function joinUp(){
 	setFormValues();
-	logFormSubmission();
-	$('#paypal-form').submit();
+	if(validateNameAndEmail()){
+  	logFormSubmission();
+	  $('#paypal-form').submit();
+  }
 }
 function logFormSubmission(){
 	//do an ajax call that chats with the back-end
+	var name = $('#visitor-name').val();
+	var email = $('#visitor-email').val();
+  console.log('log "'+name+'" - '+email);
 }
+$(function() {
+	validateNameAndEmail();
+});

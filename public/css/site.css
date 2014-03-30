@@ -45,14 +45,15 @@ h1 .small {
 .input-small { width: 90px; }
 .input-medium { width: 150px; }
 .input-large { width: 210px; }
-.input-xlarge { width: 290px; }
+.input-xlarge { width: 260px; }
 .input-xxlarge { width: 330px; }
 #dropdownMenuJoin {
-	background-color: transparent;
+	background-color: #c5e2e5; /*transparent;*/
 }
 .radio, .checkbox {
 	max-width: 400px;
 }
+
 #joinButton {
 	margin:20px auto;
 	display:block;
@@ -66,6 +67,12 @@ h1 .small {
 .border {
 	border: 1px #000000 solid;
 }
+.standard {
+	padding:6px;
+}
 .bg-danger, .bg-success {
 	padding:6px;
+}
+.control-label {
+	font-weight: normal;
 }
