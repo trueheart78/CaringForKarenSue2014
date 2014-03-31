@@ -20,9 +20,9 @@ function selectMenu(menuOption){
       $(this).hide();
     }
 	})
-	setFormValues();
+	setPayPalFormValues();
 }
-function setFormValues(){
+function setPayPalFormValues(){
 	switch(selectedOption){
   	case 'register':
   	  $('#paypal-button-id').val('VHZ9MFUHBBW7L');
@@ -87,18 +87,24 @@ function validateNameAndEmail(allowEmpty){
 	return (validateName(allowEmpty) && validateEmail(allowEmpty)) ? true : false;	
 }
 function joinUp(){
-	setFormValues();
+	setPayPalFormValues();
 	if(validateNameAndEmail()){
   	logFormSubmission();
-	  $('#paypal-form').submit();
+  	if($('#payment_type').val() == 'paypal'){
+		  $('#paypal-form').submit();
+		} else {
+			//redirect to the 'check confirmation' page
+			document.location = '/registration/check/confirmation';
+		}
   }
 }
 function logFormSubmission(){
 	//do an ajax call that chats with the back-end
 	var name = $('#visitor-name').val();
 	var email = $('#visitor-email').val();
-  console.log('log "'+name+'" - '+email);
+	var type = $('#payment_type').val();
+  console.log('log '+type+' for "'+name+'" - '+email);
 }
 $(function() {
-	validateNameAndEmail(true);
+	//validateNameAndEmail(true);
 });

@@ -65,4 +65,8 @@ class CaringSite < Sinatra::Base
   	@joinTab = true
   	haml :sponsor_cancelled
   end
+  get '/registration/check/confirmation' do
+    @joinTab = true
+    haml :check_confirmation
+  end
 end

@@ -73,6 +73,13 @@
         Email:
       .col-md-12{style: "padding-left:0"}
         %input.input-xlarge.form-control#visitor-email{onkeyup:"validateEmail()"}
+    .col-md-12{style: "margin-top:10px"}
+      %label.control-label
+        Pay With:
+      .col-md-12{style: "padding-left:0"}
+      %select.form-control.input-xlarge#payment_type
+        %option{:value=>"paypal",:selected=>true} PayPal / Credit Card
+        %option{:value=>"check"} Check / Money Order
     .col-sm-12
       %button.btn.btn-lg.btn-primary#joinButton{:type=>"button",:onclick=>"joinUp();"}
         Looks Good to Me!
