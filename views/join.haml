@@ -16,6 +16,8 @@
           -#%li{:role=>"divider"}
           %li#ddm-join-lunch{:role=>"presentation"}
             %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('lunch')"} Join us for Lunch
+          %li#ddm-join-donate{:role=>"presentation"}
+            %a{:role=>"menuitem",:tabindex=>"-1",:href=>"#", :onclick=>"selectMenu('donate')"} Send a Donation
     #register-form.join-form.col-sm-12
       %select.form-control.input-xlarge#register_selection
         %option{:value=>"1 Player",:selected=>true} 1 player for $100
@@ -68,6 +70,9 @@
         %option{:value=>"8 Lunches"} 8 lunches for $200
         %option{:value=>"9 Lunches"} 9 lunches for $225
         %option{:value=>"10 Lunches"} 10 lunches for $250
+
+    #donate-form.join-form.col-md-12.hidden-form
+
     .col-md-12#name-block{style: "margin-top:10px"}
       %label.control-label
         Name:
