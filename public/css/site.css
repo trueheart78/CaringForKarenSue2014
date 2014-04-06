@@ -76,3 +76,15 @@ h1 .small {
 .control-label {
 	font-weight: normal;
 }
+.sponsor-light {
+	background-color: #c5e2e5;
+}
+.sponsor-white {
+	background-color: #ffffff;
+}
+.left {
+	float:left;
+}
+.right {
+	float:right;
+}
