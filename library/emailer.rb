@@ -15,9 +15,8 @@ class Emailer
     @message = 'A user has registered'
     @subject = 'New User Registration'
   end
-
   def loadUserEmail
-    @fromEmail = 'josh@trueheart78.com'
+    @fromEmail = ENV['ADMIN_EMAIL']
     @message = 'You have been registered'
     @subject = 'Your Registration'
   end
@@ -35,8 +34,8 @@ class Emailer
       message = {
 				:subject=> @subject,  
 				:from_name=> "CaringForKarenSue.com",
-				:text=>@message,  
-				:to=>[  
+				:text=> @message,  
+				:to=> [  
 				 {  
 				   :email=> @email,  
 				   :name=> @name  
@@ -45,9 +44,11 @@ class Emailer
 				#:html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
 				:from_email=>@fromEmail
       }
-      sending = m.messages.send message
+      #sending = m.messages.send message
       #{"email"=>"josh@trueheart78.com", "status"=>"sent", "_id"=>"5a8936b2ea8e4cacb08887af81a167f9", "reject_reason"=>nil}
       #puts "#{sending}"
+      rendered = m.templates.render 'caring-registration-admin', [{:name => 'main', :content => 'The main content block'}]
+      puts rendered['html'] # print out the rendered HTML
     end
   end
 end
