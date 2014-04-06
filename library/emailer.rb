@@ -79,7 +79,9 @@ class Emailer
     "PO Box 507\n"+
     "Arvada, CO 80001\n"+
     "\n"+
-    "Make your check or money order payable to:</i> Karen Sue Benefit Fund\n"
+    "Make your check or money order payable to:</i> Karen Sue Benefit Fund\n"+
+    "\n"+
+    "The deadline for your check is August 16, 2014"
 
     @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
     "You have registered for the CaringForKarenSue.com 5th Annual Golf Classic<br>"+
@@ -95,6 +97,8 @@ class Emailer
     "Arvada, CO 80001"+
     "</blockquote>"+
     "<i>Make your check or money order payable to:</i> Karen Sue Benefit Fund<br>"+
+    "<br>"+
+    "The deadline for your check is August 16, 2014"+
     "</div>"
   end
 end
