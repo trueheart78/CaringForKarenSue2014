@@ -29,14 +29,6 @@ class CaringSite < Sinatra::Base
     end
     "success"
 	end
-  get '/email-test' do
-    params = {name: 'Josh', email: 'josh@trueheart78.com', type: 'check'}
-    require 'library/emailer'
-    emailer = Emailer.new(params)
-    success = emailer.sendAdminEmail
-    success = emailer.sendUserEmail
-    output = (success) ? "success" : "error"
-  end
   get '/about' do
 	  # use the views/about.haml file
 	  @aboutTab = true
