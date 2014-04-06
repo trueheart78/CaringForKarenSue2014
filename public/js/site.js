@@ -1,4 +1,5 @@
-selectedOption = 'register'
+selectedOption = 'register';
+selectedValue = '1 player for $100';
 function selectMenu(menuOption){
 	selectedOption = menuOption;
 	var match = 'ddm-join-'+menuOption;
@@ -45,6 +46,22 @@ function setPayPalFormValues(){
   	  break;
   }
 }
+function setSelectedValue(){
+	switch(selectedOption){
+  	case 'register':
+  	case 'lunch':
+  	  selectedValue = $('#'+selectedOption+'_selection>option:selected').text();
+  	break;
+  	case 'sponsor':
+  	  var selectedID = $('input[name="sponsor_selection"]:checked').attr('id');
+  	  selectedValue = $('#'+selectedID+'Text').html();
+  	  break;
+  	case 'donate':
+  	default:
+      selectedValue = 'donation';
+  	  break;
+  }
+}
 function validateName(allowEmpty){
 	allowEmpty = (allowEmpty != null) ? allowEmpty : false;
 	var valid = true;
@@ -88,22 +105,27 @@ function validateNameAndEmail(allowEmpty){
 }
 function joinUp(){
 	setPayPalFormValues();
+	setSelectedValue();
 	if(validateNameAndEmail()){
-  	logFormSubmission();
-  	if($('#payment_type').val() == 'paypal'){
-		  $('#paypal-form').submit();
-		} else {
-			//redirect to the 'check confirmation' page
-			document.location = '/registration/check/confirmation';
-		}
+	  submitForm();
   }
 }
-function logFormSubmission(){
+function submitForm(){
 	//do an ajax call that chats with the back-end
 	var name = $('#visitor-name').val();
 	var email = $('#visitor-email').val();
-	var type = $('#payment_type').val();
-  console.log('log '+type+' for "'+name+'" - '+email);
+	var checkout = $('#payment_type').val();
+	var type = $('#paypal-name-id').val();
+	var value = $('#paypal-value-id').val();	
+  console.log('log '+checkout+' for "'+name+'" - '+email+' ['+type+'] '+value+': '+selectedValue);
+/*
+  if($('#payment_type').val() == 'paypal'){
+	  $('#paypal-form').submit();
+	} else {
+		//redirect to the 'check confirmation' page
+		document.location = '/registration/check/confirmation';
+	}
+*/ 
 }
 $(function() {
 	//validateNameAndEmail(true);
