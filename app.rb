@@ -21,6 +21,13 @@ class CaringSite < Sinatra::Base
 			redirect '/join'
 		end
 		#do something with the post data, then return success
+    require 'library/emailer'
+    emailer = Emailer.new(params)
+    emailer.sendAdminEmail
+    if params[:checkout] == 'check'
+      emailer.sendUserEmail
+    end
+    "success"
 	end
   get '/email-test' do
     params = {name: 'Josh', email: 'josh@trueheart78.com', type: 'check'}
@@ -29,9 +36,7 @@ class CaringSite < Sinatra::Base
     success = emailer.sendAdminEmail
     success = emailer.sendUserEmail
     output = (success) ? "success" : "error"
-    #"#{output}"
   end
-
   get '/about' do
 	  # use the views/about.haml file
 	  @aboutTab = true

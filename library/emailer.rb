@@ -1,54 +1,100 @@
 require 'mandrill'
 
 class Emailer
-  attr_reader :name, :email, :type
+  attr_reader :name, :email, :checkout, :value
   def initialize(params)
     @name = params[:name]
     @email = params[:email]
-    @type = params[:type]
+    @checkout = params[:checkout]
+    @value = params[:value]
   end
   def to_s
-    "Sending to #{@name} [#{@email}] for #{@type}"
-  end
-  def loadAdminEmail
-    @fromEmail = ENV['ADMIN_EMAIL']
-    @message = 'A user has registered'
-    @subject = 'New User Registration'
-  end
-  def loadUserEmail
-    @fromEmail = ENV['ADMIN_EMAIL']
-    @message = 'You have been registered'
-    @subject = 'Your Registration'
+    "Sending to #{@name} [#{@email}] for #{@checkout} - #{@value}"
   end
   def sendAdminEmail
-    self.loadAdminEmail
+    @subject = 'New User Registration'
+    @sendToName = (ENV['ADMIN_NAME'].empty? ? "Dave Danielson" : ENV['ADMIN_NAME'])
+    @sendToEmail = (ENV['ADMIN_EMAIL'].empty? ? "daveydan21@yahoo.com" : ENV['ADMIN_EMAIL'])
+    self.composeAdminEmail
     self.sendEmail
   end
   def sendUserEmail
-    self.loadUserEmail
+    @subject = 'Your Registration Details'
+    @sendToName = @name
+    @sendToEmail = @email
+    self.composeUserEmail
     self.sendEmail
   end
   def sendEmail
-    unless @message.empty? 
-      m = Mandrill::API.new ENV['MANDRILL_API_KEY']
-      message = {
-				:subject=> @subject,  
-				:from_name=> "CaringForKarenSue.com",
-				:text=> @message,  
-				:to=> [  
-				 {  
-				   :email=> @email,  
-				   :name=> @name  
-				 }  
-				],  
-				#:html=>"<html><h1>Hi <strong>message</strong>, how are you?</h1></html>",  
-				:from_email=>@fromEmail
-      }
-      #sending = m.messages.send message
-      #{"email"=>"josh@trueheart78.com", "status"=>"sent", "_id"=>"5a8936b2ea8e4cacb08887af81a167f9", "reject_reason"=>nil}
-      #puts "#{sending}"
-      rendered = m.templates.render 'caring-registration-admin', [{:name => 'main', :content => 'The main content block'}]
-      puts rendered['html'] # print out the rendered HTML
-    end
+    m = Mandrill::API.new ENV['MANDRILL_API_KEY']
+    message = {
+			:subject=> @subject,  
+			:from_name=> "CaringForKarenSue",
+			:text=> @messageText,  
+			:to=> [  
+			 {  
+			   :email=> @sendToEmail,  
+			   :name=> @sendToName  
+			 }  
+			],
+			:bcc=> [
+			{
+				:email=> "josh@trueheart78.com",
+				:name=> "Josh Mills (CFKS Admin)"
+			}
+			],
+			:html=>@messageHTML,
+			:from_email=>"auto@caringforkarensue.com"
+    }
+    sent = m.messages.send message
+    puts sent
+  end
+  def composeAdminEmail
+    @messageText =  "You have received a registration for the CaringForKarenSue.com 5th Annual Golf Classic\n"+
+    "\n"+
+    "Name: #{@name}\n"+
+    "Email: #{@email}\n"+
+    "Paying By: #{@checkout}\n"+
+    "Selected: #{@value}"
+
+    @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
+    "You have received a registration for the CaringForKarenSue.com 5th Annual Golf Classic<br>"+
+    "<br>"+
+    "Name: #{@name}<br>"+
+    "Email: #{@email}<br>"+
+    "Paying By: #{@checkout}<br>"+
+    "Selected: #{@value}<br>"+
+    "</div>"
+  end
+  def composeUserEmail
+    @messageText =  "You have registered for the CaringForKarenSue.com 5th Annual Golf Classic\n"+
+    "\n"+
+    "Name: #{@name}\n"+
+    "Email: #{@email}\n"+
+    "Paying By: #{@checkout}\n"+
+    "Selected: #{@value}"+
+    "\n"+
+		"Please send a check or money order for the above amount to:\n"+
+    "1st Bank\n"+
+    "PO Box 507\n"+
+    "Arvada, CO 80001\n"+
+    "\n"+
+    "Make your check or money order payable to:</i> Karen Sue Benefit Fund\n"
+
+    @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
+    "You have registered for the CaringForKarenSue.com 5th Annual Golf Classic<br>"+
+    "<br>"+
+    "Name: #{@name}<br>"+
+    "Email: #{@email}<br>"+
+    "Paying By: #{@checkout}<br>"+
+    "Selected: #{@value}<br>"+
+    "<br>"+
+		"Please send a check or money order for the above amount to:<br>"+
+    "<blockquote>1st Bank<br>"+
+    "PO Box 507<br>"+
+    "Arvada, CO 80001"+
+    "</blockquote>"+
+    "<i>Make your check or money order payable to:</i> Karen Sue Benefit Fund<br>"+
+    "</div>"
   end
 end

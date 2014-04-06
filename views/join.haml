@@ -139,6 +139,9 @@
   #hole-in-one.col-md-12
     Hole in One (Key event sponsor) : $2,000 (2 foursomes, 2 Hole Sponsors and logo and name on banner and website.)
 
+#session-row.row.hide
+  .col-md-12
+    %input{name: 'authenticity_token', id: 'authenticity_token', type: 'hidden', value: session[:csrf]}
 
 #paypal-row.row.hide
   %form.col-md-12.border#paypal-form{action: "https://www.paypal.com/cgi-bin/webscr", method: "post"}

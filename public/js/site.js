@@ -115,18 +115,15 @@ function submitForm(){
 	var name = $('#visitor-name').val();
 	var email = $('#visitor-email').val();
 	var checkout = $('#payment_type').val();
-	var type = $('#paypal-name-id').val();
-	var value = $('#paypal-value-id').val();	
-  console.log('log '+checkout+' for "'+name+'" - '+email+' ['+type+'] '+value+': '+selectedValue);
-/*
-  if($('#payment_type').val() == 'paypal'){
-	  $('#paypal-form').submit();
-	} else {
-		//redirect to the 'check confirmation' page
-		document.location = '/registration/check/confirmation';
-	}
-*/ 
+	var auth_token = $('#authenticity_token').val();
+  //console.log(auth_token+' '+checkout+' for "'+name+'" - '+email+': '+selectedValue);
+  var data = { authenticity_token: auth_token, name: name, email: email, checkout: checkout, value: selectedValue};
+  $.post('/join', data, function(data, textStatus, jqXHR){
+    if($('#payment_type').val() == 'paypal'){
+	  	$('#paypal-form').submit();
+		} else {
+			//redirect to the 'check confirmation' page
+			document.location = '/registration/check/confirmation';
+		}
+  }); 
 }
-$(function() {
-	//validateNameAndEmail(true);
-});
