@@ -16,7 +16,7 @@ class CaringSite < Sinatra::Base
 	  @joinTab = true
 	  haml :join
   end
-  
+
   post '/join' do
 		if params[:email].empty? or params[:name].empty?
 			redirect '/join'
@@ -30,6 +30,7 @@ class CaringSite < Sinatra::Base
     end
     "success"
 	end
+  
   get '/about' do
 	  # use the views/about.haml file
 	  @aboutTab = true
