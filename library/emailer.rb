@@ -11,22 +11,41 @@ class Emailer
   def to_s
     "Sending to #{@name} [#{@email}] for #{@checkout} - #{@value}"
   end
+  def admin_name
+    if !ENV['ADMIN_NAME'].nil? && !ENV['ADMIN_NAME'].empty?
+      ENV['ADMIN_NAME']
+    else
+      "Dave Danielson"
+    end
+  end
+  def admin_email
+    if !ENV['ADMIN_EMAIL'].nil? && !ENV['ADMIN_EMAIL'].empty?
+      ENV['ADMIN_EMAIL']
+    else
+      "daveydan21@yahoo.com"
+    end
+  end
   def sendAdminEmail
+    return unless mandrill_api_key
     @subject = 'New User Registration'
-    @sendToName = (ENV['ADMIN_NAME'].empty? ? "Dave Danielson" : ENV['ADMIN_NAME'])
-    @sendToEmail = (ENV['ADMIN_EMAIL'].empty? ? "daveydan21@yahoo.com" : ENV['ADMIN_EMAIL'])
+    @sendToName = admin_name
+    @sendToEmail = admin_email
     self.composeAdminEmail
     self.sendEmail
   end
   def sendUserEmail
+    return unless mandrill_api_key
     @subject = 'Your Registration Details'
     @sendToName = @name
     @sendToEmail = @email
     self.composeUserEmail
     self.sendEmail
   end
+  def mandrill_api_key
+    ENV['MANDRILL_API_KEY']
+  end
   def sendEmail
-    m = Mandrill::API.new ENV['MANDRILL_API_KEY']
+    m = Mandrill::API.new(mandrill_api_key)
     message = {
 			:subject=> @subject,  
 			:from_name=> "CaringForKarenSue",
