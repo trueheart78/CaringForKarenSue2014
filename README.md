@@ -6,9 +6,13 @@ A simple ruby site, with sinatra support. Currently running on RedHat's OpenShif
 Default Environment File (.env)
 -------------------------------
 `NODE_ENV=[production,development]`
+
 `APP_SECRET_HASH='[randomly-generated-hash]'`
+
 `ADMIN_NAME='Ed Example'`
+
 `ADMIN_EMAIL='ed@example.com'`
+
 `MANDRILL_API_KEY='[mandrill-api-key]'`
 
 Deploying on OpenShift
