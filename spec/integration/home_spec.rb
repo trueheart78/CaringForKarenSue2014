@@ -9,7 +9,7 @@ describe "Caring For Caring Sue" do
   it "should display the start time on the home page" do
     get '/'
     expect(last_response).to be_ok
-    expect(last_response.body).to match(/Saturday, Sept 13, 2014/)
+    expect(last_response.body).to match(/Saturday, Sept 12, 2015/)
   end
   it "should respond to GET /join" do
   	get '/join'
