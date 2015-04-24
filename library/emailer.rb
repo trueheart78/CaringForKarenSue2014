@@ -69,7 +69,7 @@ class Emailer
     puts sent
   end
   def composeAdminEmail
-    @messageText =  "You have received a registration for the CaringForKarenSue.com 5th Annual Golf Classic\n"+
+    @messageText =  "You have received a registration for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
     "\n"+
     "Name: #{@name}\n"+
     "Email: #{@email}\n"+
@@ -77,7 +77,7 @@ class Emailer
     "Selected: #{@value}"
 
     @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
-    "You have received a registration for the CaringForKarenSue.com 5th Annual Golf Classic<br>"+
+    "You have received a registration for the CaringForKarenSue.com 6th Annual Golf Classic<br>"+
     "<br>"+
     "Name: #{@name}<br>"+
     "Email: #{@email}<br>"+
@@ -86,7 +86,7 @@ class Emailer
     "</div>"
   end
   def composeUserEmail
-    @messageText =  "You have registered for the CaringForKarenSue.com 5th Annual Golf Classic\n"+
+    @messageText =  "You have registered for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
     "\n"+
     "Name: #{@name}\n"+
     "Email: #{@email}\n"+
@@ -100,10 +100,10 @@ class Emailer
     "\n"+
     "Make your check or money order payable to:</i> Karen Sue Benefit Fund\n"+
     "\n"+
-    "The deadline for your check is August 16, 2014"
+    "The deadline for your check is September 1, 2015"
 
     @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
-    "You have registered for the CaringForKarenSue.com 5th Annual Golf Classic<br>"+
+    "You have registered for the CaringForKarenSue.com 6th Annual Golf Classic<br>"+
     "<br>"+
     "Name: #{@name}<br>"+
     "Email: #{@email}<br>"+
@@ -117,7 +117,7 @@ class Emailer
     "</blockquote>"+
     "<i>Make your check or money order payable to:</i> Karen Sue Benefit Fund<br>"+
     "<br>"+
-    "The deadline for your check is August 16, 2014"+
+    "The deadline for your check is September 1, 2015"+
     "</div>"
   end
 end
