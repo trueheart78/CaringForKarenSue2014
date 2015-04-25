@@ -5,11 +5,13 @@ gem 'sinatra'
 gem 'tilt', '~>1.3.3'
 gem 'mandrill-api'
 
-gem 'dotenv', :groups => [:development, :test]
-gem 'minitest', :groups => [:development, :test]
-
 group :development do
   gem 'shotgun'
+end
+
+group :development, :test do
+  gem 'dotenv'
+  gem 'minitest'
 end
 
 group :test do
