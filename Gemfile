@@ -6,6 +6,7 @@ gem 'tilt', '~>1.3.3'
 gem 'mandrill-api'
 
 gem 'dotenv', :groups => [:development, :test]
+gem 'minitest', :groups => [:development, :test]
 
 group :development do
   gem 'shotgun'
@@ -13,5 +14,4 @@ end
 
 group :test do
   gem 'rack-test'
-  gem 'rspec'
 end
