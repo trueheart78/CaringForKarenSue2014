@@ -59,6 +59,9 @@ function setSelectedValue(){
   	  var selectedID = $('input[name="sponsor_selection"]:checked').attr('id');
   	  selectedValue = $('#'+selectedID+'Text').html();
   	  break;
+    case 'donate-mohawk':
+      selectedValue = 'donation-mohawk';
+      break;
   	case 'donate':
   	default:
       selectedValue = 'donation';
