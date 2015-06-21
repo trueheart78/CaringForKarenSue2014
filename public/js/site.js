@@ -40,6 +40,9 @@ function setPayPalFormValues(){
   	  $('#paypal-name-id').val('Lunches');
   	  $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
   	  break;
+    case 'donate-mohawk':
+      $('#paypal-button-id').val('689W9GZJ6JQP6');
+      break;
   	case 'donate':
   	default:
       $('#paypal-button-id').val('S7P66PVP66D74');

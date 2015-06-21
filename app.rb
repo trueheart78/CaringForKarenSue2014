@@ -23,9 +23,9 @@ class CaringSite < Sinatra::Base
 		#do something with the post data, then return success
 		require 'library/emailer'
 		emailer = Emailer.new(params)
-		emailer.sendAdminEmail
+		emailer.send_admin_email
 		if params[:checkout] == 'check'
-			emailer.sendUserEmail
+			emailer.send_user_email
 		end
 		"success"
 	end

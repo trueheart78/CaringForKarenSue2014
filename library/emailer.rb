@@ -2,6 +2,10 @@ require 'mandrill'
 
 class Emailer
   attr_reader :name, :email, :checkout, :value
+  
+  ADMIN_NAME  = "Dave Danielson"
+  ADMIN_EMAIL = "daveydan21@yahoo.com"
+
   def initialize(params)
     @name = params[:name]
     @email = params[:email]
@@ -15,45 +19,45 @@ class Emailer
     if !ENV['ADMIN_NAME'].nil? && !ENV['ADMIN_NAME'].empty?
       ENV['ADMIN_NAME']
     else
-      "Dave Danielson"
+      ADMIN_NAME
     end
   end
   def admin_email
     if !ENV['ADMIN_EMAIL'].nil? && !ENV['ADMIN_EMAIL'].empty?
       ENV['ADMIN_EMAIL']
     else
-      "daveydan21@yahoo.com"
+      ADMIN_EMAIL
     end
   end
-  def sendAdminEmail
+  def send_admin_email
     return unless mandrill_api_key
     @subject = 'New User Registration'
-    @sendToName = admin_name
-    @sendToEmail = admin_email
-    self.composeAdminEmail
-    self.sendEmail
+    @send_to_name = admin_name
+    @send_to_email = admin_email
+    self.compose_admin_email
+    self.deliver_email
   end
-  def sendUserEmail
+  def send_user_email
     return unless mandrill_api_key
     @subject = 'Your Registration Details'
-    @sendToName = @name
-    @sendToEmail = @email
-    self.composeUserEmail
-    self.sendEmail
+    @send_to_name = @name
+    @send_to_email = @email
+    self.compose_user_email
+    self.deliver_email
   end
   def mandrill_api_key
     ENV['MANDRILL_API_KEY']
   end
-  def sendEmail
+  def deliver_email
     m = Mandrill::API.new(mandrill_api_key)
     message = {
 			:subject=> @subject,  
 			:from_name=> "CaringForKarenSue",
-			:text=> @messageText,  
+			:text=> @message_text,  
 			:to=> [  
 			 {  
-			   :email=> @sendToEmail,  
-			   :name=> @sendToName  
+			   :email=> @send_to_email,  
+			   :name=> @send_to_name  
 			 }  
 			],
 			:bcc=> [
@@ -62,21 +66,21 @@ class Emailer
 				:name=> "Josh Mills (CFKS Admin)"
 			}
 			],
-			:html=>@messageHTML,
-			:from_email=>"auto@caringforkarensue.com"
+			:html=> @message_html,
+			:from_email=> "no-reply@caringforkarensue.com"
     }
     sent = m.messages.send message
     puts sent
   end
-  def composeAdminEmail
-    @messageText =  "You have received a registration for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
+  def compose_admin_email
+    @message_text =  "You have received a registration for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
     "\n"+
     "Name: #{@name}\n"+
     "Email: #{@email}\n"+
     "Paying By: #{@checkout}\n"+
     "Selected: #{@value}"
 
-    @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
+    @message_html = "<div style='font-family:Arial;font-size:10pt;'>"+
     "You have received a registration for the CaringForKarenSue.com 6th Annual Golf Classic<br>"+
     "<br>"+
     "Name: #{@name}<br>"+
@@ -85,8 +89,8 @@ class Emailer
     "Selected: #{@value}<br>"+
     "</div>"
   end
-  def composeUserEmail
-    @messageText =  "You have registered for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
+  def compose_user_email
+    @message_text =  "You have registered for the CaringForKarenSue.com 6th Annual Golf Classic\n"+
     "\n"+
     "Name: #{@name}\n"+
     "Email: #{@email}\n"+
@@ -102,7 +106,7 @@ class Emailer
     "\n"+
     "The deadline for your check is September 1, 2015"
 
-    @messageHTML = "<div style='font-family:Arial;font-size:10pt;'>"+
+    @message_html = "<div style='font-family:Arial;font-size:10pt;'>"+
     "You have registered for the CaringForKarenSue.com 6th Annual Golf Classic<br>"+
     "<br>"+
     "Name: #{@name}<br>"+
