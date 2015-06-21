@@ -51,23 +51,23 @@ class Emailer
   def deliver_email
     m = Mandrill::API.new(mandrill_api_key)
     message = {
-			:subject=> @subject,  
-			:from_name=> "CaringForKarenSue",
-			:text=> @message_text,  
-			:to=> [  
-			 {  
-			   :email=> @send_to_email,  
-			   :name=> @send_to_name  
-			 }  
-			],
-			:bcc=> [
-			{
-				:email=> "josh@trueheart78.com",
-				:name=> "Josh Mills (CFKS Admin)"
-			}
-			],
-			:html=> @message_html,
-			:from_email=> "no-reply@caringforkarensue.com"
+      :subject=> @subject,  
+      :from_name=> "CaringForKarenSue",
+      :text=> @message_text,  
+      :to=> [  
+       {  
+         :email=> @send_to_email,  
+         :name=> @send_to_name  
+       }  
+      ],
+      :bcc=> [
+      {
+        :email=> "josh@trueheart78.com",
+        :name=> "Josh Mills (CFKS Admin)"
+      }
+      ],
+      :html=> @message_html,
+      :from_email=> "no-reply@caringforkarensue.com"
     }
     sent = m.messages.send message
     puts sent
@@ -97,7 +97,7 @@ class Emailer
     "Paying By: #{@checkout}\n"+
     "Selected: #{@value}"+
     "\n"+
-		"Please send a check or money order for the above amount to:\n"+
+    "Please send a check or money order for the above amount to:\n"+
     "1st Bank\n"+
     "PO Box 507\n"+
     "Arvada, CO 80001\n"+
@@ -114,7 +114,7 @@ class Emailer
     "Paying By: #{@checkout}<br>"+
     "Selected: #{@value}<br>"+
     "<br>"+
-		"Please send a check or money order for the above amount to:<br>"+
+    "Please send a check or money order for the above amount to:<br>"+
     "<blockquote>1st Bank<br>"+
     "PO Box 507<br>"+
     "Arvada, CO 80001"+
