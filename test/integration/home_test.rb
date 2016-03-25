@@ -13,12 +13,12 @@ class HomeTest < Minitest::Test
   end
   def test_show_correct_header
     get '/'
-    assert_match /6<sup>th<\/sup> Annual Golf Classic/,
+    assert_match /7<sup>th<\/sup> Annual Golf Classic/,
                  last_response.body
   end
   def test_show_event_date
     get '/'
-    assert_match /Saturday, Sept 12, 2015/,
+    assert_match /Saturday, Sept 10, 2016/,
                  last_response.body
   end
   def test_show_event_time
@@ -55,7 +55,7 @@ class HomeTest < Minitest::Test
     get '/'
     assert_match /<a href='http:\/\/www.shilohhouse.org' target='_blank' title='Shiloh House'>Shiloh House<\/a>/,
                  last_response.body
-                 
+
 
   end
 end
