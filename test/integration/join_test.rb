@@ -13,7 +13,7 @@ class HomeTest < Minitest::Test
   end
   def test_show_event_deadline
     get '/join'
-    assert_match /September 1, 2015/,
+    assert_match /September 1, 2016/,
                  last_response.body
   end
 end
