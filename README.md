@@ -7,6 +7,10 @@ Run the application with the following:
 
 `bundle exec shotgun`
 
+Running tests:
+
+`bundle exec rake test`
+
 Default Environment File (.env)
 -------------------------------
 `NODE_ENV=[production,development]`
