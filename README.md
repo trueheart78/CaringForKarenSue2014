@@ -1,7 +1,7 @@
 Caring For Karen Sue 2014
 =========================
 
-[![Circle CI](https://circleci.com/gh/trueheart78/CaringForKarenSue2014.svg?style=svg)](https://circleci.com/gh/trueheart78/CaringForKarenSue2014)
+[![Circle CI](https://circleci.com/gh/trueheart78/CaringForKarenSue2014.svg?style=shield)](https://circleci.com/gh/trueheart78/CaringForKarenSue2014)
 
 A simple ruby site, with sinatra support. Currently running on RedHat's OpenShift platform under ruby 1.9
 
