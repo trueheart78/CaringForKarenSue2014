@@ -27,6 +27,7 @@ class CaringSite < Sinatra::Base
     end
     #handle the post data, then return success
     require 'library/emailer'
+    require 'library/sparkpost'
     emailer = Emailer.new(params)
     emailer.send_admin_email
     if params[:checkout] == 'check'
