@@ -11,6 +11,11 @@ class CaringSite < Sinatra::Base
     erb :index
   end
 
+  get '/env' do
+    redirect '/' unless ENV['NODE_ENV'] == 'development'
+    erb :environment
+  end
+
   get '/join' do
     @joinTab = 'active'
     erb :join
@@ -20,14 +25,14 @@ class CaringSite < Sinatra::Base
     if params[:email].empty? or params[:name].empty?
       redirect '/join'
     end
-    #do something with the post data, then return success
+    #handle the post data, then return success
     require 'library/emailer'
     emailer = Emailer.new(params)
     emailer.send_admin_email
     if params[:checkout] == 'check'
       emailer.send_user_email
     end
-    "success"
+    'success'
   end
 
   get '/about' do

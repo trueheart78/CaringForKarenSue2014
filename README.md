@@ -15,24 +15,23 @@ Running tests:
 
 Default Environment File (.env)
 -------------------------------
-`NODE_ENV=[production,development]`
 
-`APP_SECRET_HASH='[randomly-generated-hash]'`
+Create a copy of the `.env` file, and then make sure to update it with relevant details:
 
-`ADMIN_NAME='Ed Example'`
-
-`ADMIN_EMAIL='ed@example.com'`
-
-`MANDRILL_API_KEY='[mandrill-api-key]'`
+```sh
+cp .env .env.local
+vim .env.local
+```
 
 Deploying on OpenShift
 ----------------------
-`rhc env set NODE_ENV=production -a $appname`
 
-`rhc env set APP_SECRET_HASH='$your-secret-hash' -a $appname`
+```sh
+rhc env set NODE_ENV=production -a $appname
+rhc env set APP_SECRET_HASH='$your-secret-hash' -a $appname
+```
 
 Visit The Website
 ----------------------------------
 
 www.CaringForKarenSue.com
-
