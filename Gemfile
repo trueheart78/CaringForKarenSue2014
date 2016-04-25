@@ -9,7 +9,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'dotenv', '0.10.0'
+  gem 'dotenv', '2.1.1'
   gem 'minitest', '5.8.4'
 end
 
