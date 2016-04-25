@@ -44,17 +44,19 @@ class Sparkpost
                    substitution_data: { customer_email: contact.email,
                                         customer_name: contact.name,
                                         payment_type: contact.payment_type,
-                                        total_cost: contact.total_cost }
+                                        selected_item: contact.selected_item }
     }
   end
 
   def recipients
-    #will have substitution data for: customer_name, customer_email, checkout, value
     @contacts
   end
 
   def substitution_data
-    #puts details here for the 'event_iteration' and 'deadline_for_checks'
+    {
+      event_iteration: '7th',
+      deadline_for_checks: 'September 1st, 2016'
+    }
   end
 
   def content
