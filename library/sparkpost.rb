@@ -4,13 +4,10 @@ require 'json'
 
 class Sparkpost
 
-  def initialize(template_id, replacement_data = {})
+  def initialize(template_id, contact)
     @template_id = template_id
-    @recipients = []
-  end
-
-  def add_recipient(recipient)
-
+    @contacts = []
+    add_contact(contact)
   end
 
   def send
@@ -42,12 +39,22 @@ class Sparkpost
     }
   end
 
-  def recipients
+  def add_contact(contact)
+    @contacts << { address: contact.address,
+                   substitution_data: { customer_email: contact.email,
+                                        customer_name: contact.name,
+                                        payment_type: contact.payment_type,
+                                        total_cost: contact.total_cost }
+    }
+  end
 
+  def recipients
+    #will have substitution data for: customer_name, customer_email, checkout, value
+    @contacts
   end
 
   def substitution_data
-
+    #puts details here for the 'event_iteration' and 'deadline_for_checks'
   end
 
   def content
