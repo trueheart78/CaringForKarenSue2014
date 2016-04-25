@@ -1,11 +1,15 @@
-require 'environment'
+require 'config/environment'
+require 'config/rollbar'
 require 'sinatra/base'
 require 'tilt/erb'
 
 class CaringSite < Sinatra::Base
+  use Rollbar::Middleware::Sinatra
+
   before do
     session[:csrf] ||= Rack::Protection::Base.new(self).random_string
   end
+
   get '/' do
     # use the views/index.erb file
     @homeTab = 'active'

@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rack', '1.6.4'
 gem 'sinatra','1.4.7' 
 gem 'tilt', '2.0.2'
+gem 'rollbar', '~> 2.8.3', require: 'rollbar/middleware/sinatra'
+gem 'oj', '~> 2.12.14'
 
 group :development do
   gem 'shotgun', '0.9.1'

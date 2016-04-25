@@ -1,9 +1,5 @@
 require './load_path'
-require 'rubygems'
-require 'bundler'
-
-Bundler.require
-
+require 'bundler_init'
 require 'caring_site'
 
 use Rack::Session::Cookie, secret: ENV['APP_SECRET_HASH']
