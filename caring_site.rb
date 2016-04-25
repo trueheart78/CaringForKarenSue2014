@@ -1,5 +1,6 @@
-require_relative 'environment'
+require 'environment'
 require 'sinatra/base'
+require 'tilt/erb'
 
 class CaringSite < Sinatra::Base
   before do
@@ -26,8 +27,7 @@ class CaringSite < Sinatra::Base
       redirect '/join'
     end
     #handle the post data, then return success
-    require 'library/emailer'
-    require 'library/sparkpost'
+    require 'emailer'
     emailer = Emailer.new(params)
     emailer.send_admin_email
     if params[:checkout] == 'check'

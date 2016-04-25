@@ -1,3 +1,5 @@
+require 'sparkpost'
+
 class Emailer
   attr_reader :customer_name, :customer_email, :checkout, :value
 

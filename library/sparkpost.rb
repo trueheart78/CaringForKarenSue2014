@@ -21,7 +21,7 @@ class Sparkpost
   private
 
   def uri
-    URI('https://api.sparkpost.com/api/v1/transmissions')
+    @uri ||= URI('https://api.sparkpost.com/api/v1/transmissions')
   end
 
   def payload
@@ -34,8 +34,8 @@ class Sparkpost
 
   def headers
     {
-      'Content-type': 'application/json',
-      'Authorization': ENV['SPARKPOST_API_KEY']
+      'Content-type' => 'application/json',
+      'Authorization' => ENV['SPARKPOST_API_KEY']
     }
   end
 
