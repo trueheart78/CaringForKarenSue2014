@@ -1,2 +1,2 @@
 require 'dotenv'
-Dotenv.load '.env.local', '.env'
+Dotenv.load ".env.#{ENV['RACK_ENV']}", '.env.local', '.env'

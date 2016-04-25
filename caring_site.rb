@@ -13,7 +13,7 @@ class CaringSite < Sinatra::Base
   end
 
   get '/env' do
-    redirect '/' unless ENV['NODE_ENV'] == 'development'
+    redirect '/' if ENV['NODE_ENV'] == 'production'
     erb :environment
   end
 
