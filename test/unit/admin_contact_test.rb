@@ -1,8 +1,8 @@
 require_relative '../test_helper'
-require 'contact'
+require 'admin_contact'
 
-describe Contact do
-  let(:contact) { Contact.new(customer_name, customer_email, payment_type, selected_item) }
+describe AdminContact do
+  let(:contact) { AdminContact.new(customer_name, customer_email, payment_type, selected_item) }
   let(:customer_name)    { 'test' }
   let(:customer_email)   { 'test@test.com' }
   let(:payment_type)     { 'check' }
@@ -20,7 +20,7 @@ describe Contact do
 
   describe '#address' do
     context 'with a name and email' do
-      let(:expected_address) { "#{customer_name} <#{customer_email}>" }
+      let(:expected_address) { ENV['ADMIN_ADDRESS'] }
 
       it 'provides a valid address' do
         assert_equal contact.address, expected_address

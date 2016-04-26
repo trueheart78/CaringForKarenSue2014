@@ -11,7 +11,7 @@ class AdminContact
   end
 
   def address
-    return ADMIN_ADDRESS unless ENV.has_key? 'ADMIN_ADDRESS' && !ENV['ADMIN_ADDRESS'].empty?
+    return ADMIN_ADDRESS unless ENV.has_key?('ADMIN_ADDRESS') && !ENV['ADMIN_ADDRESS'].empty?
     ENV['ADMIN_ADDRESS']
   end
 end

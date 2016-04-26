@@ -4,6 +4,7 @@ require 'bundler_init'
 require 'minitest/autorun'
 require 'minitest/pride'
 require 'rack/test'
+require 'pry'
 
 require 'caring_site'
 
