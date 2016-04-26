@@ -1,4 +1,4 @@
-require File.expand_path '../../test_helper.rb', __FILE__
+require_relative '../test_helper'
 
 class HomeTest < Minitest::Test
   include Rack::Test::Methods

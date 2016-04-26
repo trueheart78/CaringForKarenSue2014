@@ -1,12 +1,9 @@
-$: << File.dirname(__FILE__)
-require 'rubygems'
-require 'bundler'
-
-Bundler.require
-
-require './app.rb'
+require './load_path'
+require 'bundler_init'
+require 'caring_site'
 
 use Rack::Session::Cookie, secret: ENV['APP_SECRET_HASH']
-use Rack::Protection, use: :authenticity_token
+use Rack::Protection::AuthenticityToken
+use Rack::Protection::EscapedParams
 
 run CaringSite.new
