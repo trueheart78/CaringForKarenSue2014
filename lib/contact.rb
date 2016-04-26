@@ -9,6 +9,10 @@ class Contact
   end
 
   def address
-    "#{name} <#{email}>"
+    { name: name, email: email }
+  end
+
+  def payment_by_check?
+    payment_type.downcase == 'check'
   end
 end

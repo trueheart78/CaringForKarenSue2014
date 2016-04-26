@@ -31,13 +31,19 @@ class CaringSite < Sinatra::Base
       redirect '/join'
     end
     #handle the post data, then return success
+    require 'admin_contact'
     require 'emailer'
-    emailer = Emailer.new(params)
-    emailer.send_admin_email
-    if params[:checkout] == 'check'
-      emailer.send_user_email
+    admin = AdminContact.new(params[:name],params[:email],params[:checkout],params[:value])
+    if Emailer.send_admin_email(admin)
+      if admin.payment_by_check?
+        require 'contact'
+        contact = Contact.new(params[:name],params[:email],params[:checkout],params[:value])
+        Emailer.send_user_email(admin)
+      end
+      status 201
+    else
+      status 404
     end
-    'success'
   end
 
   get '/about' do

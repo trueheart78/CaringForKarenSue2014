@@ -227,7 +227,7 @@
 </div>
 <div class='row hide' id='session-row'>
   <div class='col-md-12'>
-    <input id='authenticity_token' name='authenticity_token' type='hidden' value='82b78d836e178a6aa759dd82ecc164f5737c29e04724f30087768848d7a74a55'>
+  <input id='authenticity_token' name='authenticity_token' type='hidden' value='<%= session[:csrf] %>'>
   </div>
 </div>
 <div class='row hide' id='paypal-row'>
