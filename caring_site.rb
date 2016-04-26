@@ -38,7 +38,7 @@ class CaringSite < Sinatra::Base
       if admin.payment_by_check?
         require 'contact'
         contact = Contact.new(params[:name],params[:email],params[:checkout],params[:value])
-        Emailer.send_user_email(admin)
+        Emailer.send_user_email(contact)
       end
       status 201
     else
