@@ -18,7 +18,7 @@ class HomeTest < Minitest::Test
   end
   def test_show_event_date
     get '/'
-    assert_match /Saturday, Sept 9<sup>th<\/sup>, 2016/,
+    assert_match /Saturday, Sept 9<sup>th<\/sup>, 2017/,
                  last_response.body
   end
   def test_show_event_time
