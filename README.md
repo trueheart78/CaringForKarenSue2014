@@ -1,5 +1,4 @@
-Caring For Karen Sue 2014
-=========================
+# Caring For Karen Sue 2014
 
 [![Circle CI](https://circleci.com/gh/trueheart78/CaringForKarenSue2014.svg?style=shield)](https://circleci.com/gh/trueheart78/CaringForKarenSue2014)
 
@@ -13,26 +12,32 @@ Running tests:
 
 `bundle exec rake test`
 
-Default Environment File (.env)
--------------------------------
-`NODE_ENV=[production,development]`
+## Default Environment File (.env)
 
-`APP_SECRET_HASH='[randomly-generated-hash]'`
+Create a copy of the `.env` file, and then make sure to update it with relevant details:
 
-`ADMIN_NAME='Ed Example'`
+```sh
+cp .env .env.local
+vim .env.local
+```
 
-`ADMIN_EMAIL='ed@example.com'`
+Load order for `.env` files are as follows:
 
-`MANDRILL_API_KEY='[mandrill-api-key]'`
+1. `.env.NODE_ENV`, where `NODE_ENV` is `test`,`development`, or `production`
+2. `.env.local`
+3. `.env`
 
-Deploying on OpenShift
-----------------------
-`rhc env set NODE_ENV=production -a $appname`
+You can setup a `.env.local` for data that is general, and put specifics in the
+`NODE_ENV` versions.
 
-`rhc env set APP_SECRET_HASH='$your-secret-hash' -a $appname`
+## Deploying on OpenShift
 
-Visit The Website
-----------------------------------
+```sh
+rhc env set NODE_ENV=production -a appname -n namespace
+rhc env set APP_SECRET_HASH='your-secret-hash' -a appname -n namespace
+rhc env list -a appname -n namespace
+```
 
-www.CaringForKarenSue.com
+## Visit The Website
 
+[www.CaringForKarenSue.com](http://www.caringforkarensue.com)

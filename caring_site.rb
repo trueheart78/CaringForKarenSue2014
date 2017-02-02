@@ -1,14 +1,24 @@
-require_relative 'environment'
+require 'config/environment'
+require 'config/rollbar'
 require 'sinatra/base'
+require 'tilt/erb'
 
 class CaringSite < Sinatra::Base
+  use Rollbar::Middleware::Sinatra
+
   before do
     session[:csrf] ||= Rack::Protection::Base.new(self).random_string
   end
+
   get '/' do
     # use the views/index.erb file
     @homeTab = 'active'
     erb :index
+  end
+
+  get '/env' do
+    redirect '/' if ENV['NODE_ENV'] == 'production'
+    erb :environment
   end
 
   get '/join' do
@@ -20,14 +30,20 @@ class CaringSite < Sinatra::Base
     if params[:email].empty? or params[:name].empty?
       redirect '/join'
     end
-    #do something with the post data, then return success
-    require 'library/emailer'
-    emailer = Emailer.new(params)
-    emailer.send_admin_email
-    if params[:checkout] == 'check'
-      emailer.send_user_email
+    #handle the post data, then return success
+    require 'admin_contact'
+    require 'emailer'
+    admin = AdminContact.new(params[:name],params[:email],params[:checkout],params[:value])
+    if Emailer.send_admin_email(admin)
+      if admin.payment_by_check?
+        require 'contact'
+        contact = Contact.new(params[:name],params[:email],params[:checkout],params[:value])
+        Emailer.send_user_email(contact)
+      end
+      status 201
+    else
+      status 404
     end
-    "success"
   end
 
   get '/about' do
