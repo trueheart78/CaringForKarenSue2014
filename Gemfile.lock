@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    coderay (1.1.1)
+    coderay (1.1.2)
     dotenv (2.1.1)
     method_source (0.8.2)
     minitest (5.8.4)
@@ -41,6 +41,7 @@ DEPENDENCIES
   shotgun (= 0.9.1)
   sinatra (= 1.4.7)
   tilt (= 2.0.2)
+
 
 BUNDLED WITH
    1.11.2
