@@ -2,7 +2,7 @@
 
 [![Circle CI](https://circleci.com/gh/trueheart78/CaringForKarenSue2014.svg?style=shield)](https://circleci.com/gh/trueheart78/CaringForKarenSue2014)
 
-A simple ruby site, with sinatra support. Currently running on RedHat's OpenShift platform under ruby 1.9
+A simple ruby site, with sinatra support. Currently running on Heroku under Ruby 2.4.
 
 Run the application with the following:
 
@@ -23,20 +23,12 @@ vim .env.local
 
 Load order for `.env` files are as follows:
 
-1. `.env.NODE_ENV`, where `NODE_ENV` is `test`,`development`, or `production`
+1. `.env.RACK_ENV`, where `RACK_ENV` is `test`,`development`, or `production`
 2. `.env.local`
 3. `.env`
 
 You can setup a `.env.local` for data that is general, and put specifics in the
-`NODE_ENV` versions.
-
-## Deploying on OpenShift
-
-```sh
-rhc env set NODE_ENV=production -a appname -n namespace
-rhc env set APP_SECRET_HASH='your-secret-hash' -a appname -n namespace
-rhc env list -a appname -n namespace
-```
+`RACK_ENV` versions.
 
 ## Visit The Website
 

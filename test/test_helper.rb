@@ -2,9 +2,8 @@ ENV['RACK_ENV'] = 'test'
 require_relative '../load_path'
 require 'bundler_init'
 require 'minitest/autorun'
-require 'minitest/pride'
 require 'rack/test'
-require 'pry'
+require 'byebug'
 
 require 'caring_site'
 

@@ -8,6 +8,9 @@ class CaringSite < Sinatra::Base
 
   before do
     session[:csrf] ||= Rack::Protection::Base.new(self).random_string
+    @homeTab = nil
+    @joinTab = nil
+    @aboutTab = nil
   end
 
   get '/' do
@@ -17,7 +20,7 @@ class CaringSite < Sinatra::Base
   end
 
   get '/env' do
-    redirect '/' if ENV['NODE_ENV'] == 'production'
+    redirect '/' if ENV['RACK_ENV'] == 'production'
     erb :environment
   end
 

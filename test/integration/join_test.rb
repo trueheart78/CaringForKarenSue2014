@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require File.expand_path '../../test_helper.rb', __FILE__
 
-class HomeTest < Minitest::Test
+class JoinTest < Minitest::Test
   include Rack::Test::Methods
 
   def app
@@ -11,9 +13,10 @@ class HomeTest < Minitest::Test
     get '/join'
     assert last_response.ok?
   end
+
   def test_show_event_deadline
     get '/join'
-    assert_match /August 28<sup>th<\/sup>, 2017/,
-                 last_response.body
+    assert_match(/August 28<sup>th<\/sup>, 2017/,
+                 last_response.body)
   end
 end

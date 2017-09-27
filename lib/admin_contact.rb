@@ -1,8 +1,8 @@
 class AdminContact
   attr_reader :name, :email, :payment_type, :selected_item
 
-  ADMIN_NAME = 'Dave Danielson'
-  ADMIN_EMAIL = 'daveydan21@yahoo.com'
+  ADMIN_NAME = 'Josh (Admin)'
+  ADMIN_EMAIL = 'josh@trueheart78.com'
 
   def initialize(name, email, payment_type, selected_item)
     @name = name
