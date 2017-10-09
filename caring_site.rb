@@ -94,4 +94,9 @@ class CaringSite < Sinatra::Base
     @joinTab = 'active'
     erb :check_confirmation
   end
+
+  # catch-all route
+  get '/*' do
+    status 404
+  end
 end
