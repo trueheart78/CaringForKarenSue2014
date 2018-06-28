@@ -16,13 +16,13 @@ class HomeTest < Minitest::Test
 
   def test_show_correct_header
     get '/'
-    assert_match(/8<sup>th<\/sup> Annual Golf Classic/,
+    assert_match(/9<sup>th<\/sup> Annual Golf Classic/,
                  last_response.body)
   end
 
   def test_show_event_date
     get '/'
-    assert_match(/Saturday, Sept 9<sup>th<\/sup>, 2017/,
+    assert_match(/Saturday, Sept 8<sup>th<\/sup>, 2018/,
                  last_response.body)
   end
 
