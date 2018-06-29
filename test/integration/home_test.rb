@@ -20,6 +20,12 @@ class HomeTest < Minitest::Test
                  last_response.body)
   end
 
+  def test_show_event_paragraph
+    get '/'
+    assert_match(/September 8<sup>th<\/sup>!/,
+                 last_response.body)
+  end
+
   def test_show_event_date
     get '/'
     assert_match(/Saturday, Sept 8<sup>th<\/sup>, 2018/,
