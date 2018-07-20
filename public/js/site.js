@@ -26,26 +26,23 @@ function selectMenu(menuOption){
 function setPayPalFormValues(){
   switch(selectedOption){
     case 'register':
-      $('#paypal-button-id').val('VHZ9MFUHBBW7L');
+      $('#paypal-button-id').val('5AWASAV7Q98AE');
       $('#paypal-name-id').val('Registrants');
       $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
     break;
     case 'sponsor':
-      $('#paypal-button-id').val('2NKPTU6SM9K7S');
+      $('#paypal-button-id').val('7RQJW2KAGNNHN');
       $('#paypal-name-id').val('Sponsor Options');
       $('#paypal-value-id').val($('input[name="sponsor_selection"]:checked').val());
       break;
     case 'lunch':
-      $('#paypal-button-id').val('DQALYAQEKWXFQ');
+      $('#paypal-button-id').val('4UHSFA89DVSQE');
       $('#paypal-name-id').val('Lunches');
       $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
       break;
-    case 'donate-mohawk':
-      $('#paypal-button-id').val('689W9GZJ6JQP6');
-      break;
     case 'donate':
     default:
-      $('#paypal-button-id').val('S7P66PVP66D74');
+      $('#paypal-button-id').val('HJNTYGL5Z8DZC');
       break;
   }
 }
