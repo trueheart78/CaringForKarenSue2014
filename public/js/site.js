@@ -64,6 +64,7 @@ function setSelectedValue(){
     case 'car-show':
       var selectedID = $('input[name="car_show_selection"]:checked').attr('id');
       selectedValue = $('#'+selectedID+'Text').html();
+      break;
     case 'donate-mohawk':
       selectedValue = 'donation-mohawk';
       break;
