@@ -21,6 +21,9 @@
           <li id='ddm-join-lunch' role='presentation'>
             <a href='#' onclick="selectMenu('lunch')" role='menuitem' tabindex='-1'>Join us for Lunch</a>
           </li>
+          <li id='ddm-join-car-show' role='presentation'>
+            <a href='#' onclick="selectMenu('car-show')" role='menuitem' tabindex='-1'>Motor Head Racing Car Show</a>
+          </li>
           <!--
           <li id='ddm-join-donate-mohawk' role='presentation'>
             <a href='#' onclick="selectMenu('donate-mohawk')" role='menuitem' tabindex='-1'>Mohawk for a Month</a>
@@ -107,7 +110,30 @@
         <option value='10 Lunches'>10 lunches for $250</option>
       </select>
     </div>
-    <div class='join-form col-md-12 hidden-form' id='donate-form'></div>
+    <div class='join-form col-md-12 hidden-form' id='car-show-form'>
+      <p style='font-weight:bold;'>1<sup>st</sup> Annual Motor Head Racing Charity!</p>
+      <p>
+      <a href='pdfs/car-show-2018.pdf' target='blank'>View flyer</a>
+      </p>
+      <div class='radio'>
+        <label>
+          <input checked id='optionsRadio1' name='car_show_selection' type='radio' value='Car, Truck, or Motorcycle'>
+            <div id='optionsRadio1Text'>
+              Car, Truck, or Motorcycle: $25
+            </div>
+          </input>
+        </label>
+      </div>
+      <div class='radio'>
+        <label>
+          <input id='optionsRadio2' name='car_show_selection' type='radio' value='Sponsor (Set up a tent/table, logo on banner)'>
+          <div id='optionsRadio2Text'>
+              Sponsor: $100 (Set up a tent/table, logo on banner)
+            </div>
+          </input>
+        </label>
+      </div>
+    </div>
     <div class='join-form col-md-12 hidden-form' id='donate-mohawk-form'>
       <p style='font-weight:bold;'>Dave is at it again!</p>
       <p>
@@ -119,6 +145,7 @@
       Please help us in raising the funds that will support The Shiloh House.
       </p>
     </div>
+    <div class='join-form col-md-12 hidden-form' id='donate-form'></div>
     <div class='col-md-12' id='name-block' style='margin-top:10px'>
       <label class='control-label'>
         Name:

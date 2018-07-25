@@ -40,6 +40,11 @@ function setPayPalFormValues(){
       $('#paypal-name-id').val('Lunches');
       $('#paypal-value-id').val($('#'+selectedOption+'_selection').val());
       break;
+    case 'car-show':
+      $('#paypal-button-id').val('PMWPE55924T54');
+      $('#paypal-name-id').val('Car Show Options')
+      $('#paypal-value-id').val($('input[name="car_show_selection"]:checked').val());
+      break;
     case 'donate':
     default:
       $('#paypal-button-id').val('HJNTYGL5Z8DZC');
@@ -56,6 +61,9 @@ function setSelectedValue(){
       var selectedID = $('input[name="sponsor_selection"]:checked').attr('id');
       selectedValue = $('#'+selectedID+'Text').html();
       break;
+    case 'car-show':
+      var selectedID = $('input[name="car_show_selection"]:checked').attr('id');
+      selectedValue = $('#'+selectedID+'Text').html();
     case 'donate-mohawk':
       selectedValue = 'donation-mohawk';
       break;
@@ -138,4 +146,3 @@ function submitForm(){
  
 ga('create', 'UA-50127265-1', 'caringforkarensue.com');
 ga('send', 'pageview');
- 
