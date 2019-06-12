@@ -22,7 +22,7 @@ class AboutTest < Minitest::Test
 
   def test_show_shiloh_link
     get '/about'
-    assert_match /<a href='http:\/\/www.shilohhouse.org' title='Shiloh House'>\s+www.shilohhouse.org\s+<\/a>/,
-                 last_response.body
+    assert_match(%r{<a href='http:\/\/www.shilohhouse.org' title='Shiloh House'>\s+www.shilohhouse.org\s+<\/a>},
+                 last_response.body)
   end
 end

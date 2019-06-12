@@ -16,7 +16,7 @@ class JoinTest < Minitest::Test
 
   def test_show_event_deadline
     get '/join'
-    assert_match(/August 27<sup>th<\/sup>, 2018/,
+    assert_match(/September 4<sup>th<\/sup>, 2019/,
                  last_response.body)
   end
 end

@@ -54,8 +54,8 @@ class Sparkpost
 
   def substitution_data
     {
-      event_iteration: '9th',
-      deadline_for_checks: 'August 27th, 2018'
+      event_iteration: '10th',
+      deadline_for_checks: 'September 4th, 2019'
     }
   end
 
