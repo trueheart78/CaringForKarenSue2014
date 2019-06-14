@@ -18,11 +18,13 @@ class AboutTest < Minitest::Test
     get '/about'
     assert_match(/In 2009, our mom, Karen Danielson/,
                  last_response.body)
+    assert_match(/This is our tenth year/,
+                 last_response.body)
   end
 
-  def test_show_shiloh_link
+  def test_show_charity_link
     get '/about'
-    assert_match(%r{<a href='http:\/\/www.shilohhouse.org' title='Shiloh House'>\s+www.shilohhouse.org\s+<\/a>},
+    assert_match(%r{<a href='https:\/\/www.therightstepinc.org' target='_blank' title='The Right Step, Inc.'>\s+www.therightstepinc.org\s+<\/a>},
                  last_response.body)
   end
 end

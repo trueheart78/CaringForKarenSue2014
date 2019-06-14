@@ -68,7 +68,7 @@ class HomeTest < Minitest::Test
 
   def test_show_footer_link
     get '/'
-    assert_match(/<a href='http:\/\/www.shilohhouse.org' target='_blank' title='Shiloh House'>Shiloh House<\/a>/,
+    assert_match(/<a href='https:\/\/www.therightstepinc.org' target='_blank' title='The Right Step, Inc.'>The Right Step, Inc.<\/a>/,
                  last_response.body)
   end
 end
